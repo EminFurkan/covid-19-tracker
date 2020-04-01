@@ -1,0 +1,54 @@
+.stats {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  margin-top: 8%;
+  position: relative;
+}
+
+.stats h3 {
+  margin: 0.5rem;
+}
+
+.stats ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.stats ul li {
+  margin: .5rem 0;
+  transform: translateX(-20%);
+  animation: test .4s linear .2s forwards;
+}
+
+@keyframes test{
+  0% {}
+  100% {transform: translateX(10%);}
+}
+.stats ul li span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: .2rem;
+}
+
+.stats ul li:nth-child(1) span {
+  background-color: rgb(255, 244, 137);
+}
+.stats ul li:nth-child(2) span {
+  background-color: rgb(250, 87, 193);
+}
+.stats ul li:nth-child(3) span {
+  background-color: rgb(177, 102, 204);
+}
+.stats ul li:nth-child(4) span {
+  background-color: rgb(117, 114, 255);
+}
+.stats ul li:nth-child(5) span {
+  background-color: rgb(105, 166, 249);
+}

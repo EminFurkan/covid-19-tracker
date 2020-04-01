@@ -1,38 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
+
+:root{
+  width: 100%;
+  height: 100vh;
+  font-family: Karla, sans-serif;
+  background: var(--black);
+  color: var(--white);
+  --yellow: rgb(255, 244, 137);
+  --pink: rgb(250, 87, 193);
+  --purple: rgb(177, 102, 204);
+  --dark-puple: rgb(117, 114, 255);
+  --blue: rgb(105, 166, 249);
+  --black: #222;
+  --white: #d3d3d3;
+  display: block;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  width: 50%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.infograph {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
 }
