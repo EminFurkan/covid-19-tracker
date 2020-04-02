@@ -52,3 +52,10 @@
 .stats ul li:nth-child(5) span {
   background-color: rgb(105, 166, 249);
 }
+
+@media all and (max-width: 768px) {
+  .stats {
+    width: 50%;
+    margin-right: 10%;
+  }
+}
