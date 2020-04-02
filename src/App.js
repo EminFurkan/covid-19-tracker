@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './styles/App.css';
 import { Graph } from './components/Graph';
 import { Search } from './components/Search';
 import { Stats } from './components/Stats';
-import { getAllData } from './services/ApiData';
+import { getAllData, getTotalData } from './services/ApiData';
+import { Loader } from './components/Loader';
+import { TotalGraph } from './components/TotalGraph';
 
 function App() {
   const [dataState, setDataState] = useState({});
+  const [totalState, setTotalState] = useState({});
 
   useEffect(() => {
     const dataHandler = async () => {
@@ -15,19 +18,36 @@ function App() {
     }
     dataHandler();
   }, []);
-  
+
+  useEffect(() => {
+    const dataHandler = async () => {
+      const { result } = await getTotalData();
+      setTotalState({res:result});
+    }
+    dataHandler();
+  }, [])
+
   const inputHandler = input => {
-    // const res = dataState.filter(data => data.country.includes(input));
-    const res = dataState.res.filter(data => new RegExp(`${input}`, 'i').test(data.country));
+    const res = dataState.res
+    .filter(data => new RegExp(`${input}`, 'i')
+    .test(data.country));
     setDataState(prevState => {return {...prevState, data:res[0]}});
   }
 
   let displayData;
+  let displayGraph;
   
   if (dataState.data !== undefined){
-    displayData = (<Stats data={dataState.data} />)
+    displayGraph = (
+      <Graph data={ dataState.data }/>
+    )
+    displayData = (<Stats data={dataState.data} />);
   } else {
-    displayData = (<h3>no data</h3>)
+    displayGraph = (
+      totalState.res === undefined ? <Loader /> : <TotalGraph res={ totalState.res } />
+    )
+    displayData = (
+    totalState.res === undefined ? <Loader /> : <Stats data={ totalState.res } />);
   }
 
   return (
@@ -35,7 +55,7 @@ function App() {
       <div className="container">
         <Search inputHandler={ inputHandler } />
         <section className="infograph">
-          <Graph data={ dataState.data !== undefined ? dataState.data : null }/>
+          { displayGraph }
           { displayData }
         </section>
       </div>
