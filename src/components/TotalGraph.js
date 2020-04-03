@@ -11,8 +11,6 @@ export const TotalGraph = ({ res }) => {
     return acc
   }, {});
 
-  console.log(res.totalCases)
-
   let totalData = [
     { x: 1, y: Number(`${res.totalDeaths}`), label: "Total Deaths" },
     { x: 2, y: Number(`${res.totalCases}`), label: "Total Cases" },
@@ -22,7 +20,6 @@ export const TotalGraph = ({ res }) => {
   return (
     <div className="total">
       <VictoryPie
-        // padAngle={({ datum }) => datum.y}
         animate={{
           duration: 2000
         }}

@@ -9,7 +9,7 @@ export const Graph = ({ data }) => {
   data = Object.entries(data)
   .filter(item => item[1].match(/(\d+(\.\d+)?)/))
   .reduce((acc, [k,v]) => {
-    acc[k] = Number(v.replace(',', ''));
+    acc[k] = Number(v.replace(/,/g, ''));
     return acc
   }, {});
 
