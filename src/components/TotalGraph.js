@@ -5,7 +5,7 @@ import '../styles/TotalGraph.css';
 export const TotalGraph = ({ res }) => {
 
   res = Object.entries(res)
-  .map(item => item = [item[0] ,item[1] = item[1].replace(/,/g, '')])
+  .map(item => item = [item[0], item[1] = item[1].replace(/,/g, '')])
   .reduce((acc, [k,v]) => {
     acc[k] = v;
     return acc

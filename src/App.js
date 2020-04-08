@@ -66,7 +66,7 @@ function App() {
           { displayGraph }
           { displayData }
         </section>
-        { displayDynamicData }
+      { displayDynamicData }
       </div>
     </div>
   );
