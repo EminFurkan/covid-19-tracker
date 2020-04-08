@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './styles/App.css';
+import { getAllData, getTotalData } from './services/ApiData';
 import { Graph } from './components/Graph';
 import { Search } from './components/Search';
 import { Stats } from './components/Stats';
-import { getAllData, getTotalData } from './services/ApiData';
 import { Loader } from './components/Loader';
 import { TotalGraph } from './components/TotalGraph';
+import { DynamicGraph } from './components/DynamicGraph';
 
 function App() {
   const [dataState, setDataState] = useState({});
@@ -36,12 +37,15 @@ function App() {
 
   let displayData;
   let displayGraph;
-  
+  let displayDynamicData;
+
   if (dataState.data !== undefined){
     displayGraph = (
       <Graph data={ dataState.data }/>
     )
-    displayData = (<Stats data={dataState.data} />);
+    displayData = (
+    <Stats data={ dataState.data } />
+    )
   } else {
     displayGraph = (
       totalState.res === undefined ? <Loader /> : <TotalGraph res={ totalState.res } />
@@ -49,6 +53,10 @@ function App() {
     displayData = (
     totalState.res === undefined ? <Loader /> : <Stats data={ totalState.res } />);
   }
+
+  dataState.res !== undefined ? 
+  displayDynamicData = (<DynamicGraph data={ dataState.res } />) 
+  : displayDynamicData = (<Loader />);
 
   return (
     <div className="App">
@@ -58,6 +66,7 @@ function App() {
           { displayGraph }
           { displayData }
         </section>
+        { displayDynamicData }
       </div>
     </div>
   );
