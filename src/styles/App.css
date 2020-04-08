@@ -48,6 +48,29 @@
   align-items: flex-start;
 }
 
+.dynamic {
+  display: grid;
+  width: 65%;
+  grid-template-columns: repeat(3, 1fr);
+}
+.list {
+  display: flex;
+}
+.list li {
+  margin: 0 1rem;
+  list-style: none;
+}
+
+.list li:nth-child(1) {
+  color: #375e92;
+}
+.list li:nth-child(2) {
+  color: #fb6542;
+}
+.list li:nth-child(3) {
+  color: #ffbb00;
+}
+
 @media all and (max-width: 768px) {
   .container {
     width: 100%;
@@ -58,5 +81,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .dynamic{
+    grid-template-columns: repeat(1, 1fr);
   }
 }

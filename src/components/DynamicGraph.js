@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { VictoryChart, VictoryTheme, VictoryGroup, VictoryBar } from 'victory';
-import '../styles/DynamicGraph.css';
 
 export const DynamicGraph = ({ data }) => {
 
-  const [currentDataSet, setCurrentDataSet] = useState(
-    [{
-      country:'loading',
-      totalCases:'12,12',
-      totalDeaths:'12,12'
-  }]);
+  const [currentDataSet, setCurrentDataSet] = useState([]);
 
   const [currentIndexGap, setCurrentIndexGap] = useState({
     start: 0,
@@ -38,6 +32,12 @@ export const DynamicGraph = ({ data }) => {
   }, [currentIndexGap.start, currentIndexGap.finish, data]);
 
   return (
+    <>
+    <ul className="list">
+      <li>Total Cases</li>
+      <li>Total Recovered</li>
+      <li>Total Deaths</li>
+    </ul>
     <div className="dynamic">
       {
         currentDataSet.map((item, index) => 
@@ -48,8 +48,8 @@ export const DynamicGraph = ({ data }) => {
           >
             <VictoryGroup
               viewBox={"0 0 100 50"}
-              offset={20}
-              style={{ data: { width: 4 }, labels: { fill: "#ddd", fontSize: 8 } }}
+              offset={30}
+              style={{ data: { width: 6 }, labels: { fill: "#ddd", fontSize: 10 } }}
               key={index}
               colorScale={[
                 "#375e92",
@@ -77,5 +77,6 @@ export const DynamicGraph = ({ data }) => {
         )
       }
     </div>
+    </>
   )
 }
