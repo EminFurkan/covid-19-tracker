@@ -49,7 +49,10 @@ export const DynamicGraph = ({ data }) => {
             <VictoryGroup
               viewBox={"0 0 100 50"}
               offset={30}
-              style={{ data: { width: 6 }, labels: { fill: "#ddd", fontSize: 10 } }}
+              style={{
+                data: { width: 6 },
+                labels: { fill: "#ddd", fontSize: 10 }
+              }}
               key={index}
               colorScale={[
                 "#375e92",
@@ -59,17 +62,26 @@ export const DynamicGraph = ({ data }) => {
             >
               <VictoryBar
                 data={[
-                  { x: item.country, y: Number(item.totalCases), label: item.totalCases },
+                  { x: item.country,
+                    y: Number(item.totalCases),
+                    label: item.totalCases 
+                  },
                 ]}
               />
               <VictoryBar
                 data={[
-                  { x: item.country, y: Number(item.totalRecovered), label: item.totalRecovered },
+                  { x: item.country,
+                    y: Number(item.totalRecovered),
+                    label: item.totalRecovered
+                  },
                 ]}
               />
               <VictoryBar
                 data={[
-                  { x: item.country, y: Number(item.totalDeaths), label: item.totalDeaths },
+                  { x: item.country,
+                    y: Number(item.totalDeaths),
+                    label: item.totalDeaths
+                  },
                 ]}
               />
             </VictoryGroup>

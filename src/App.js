@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './styles/App.css';
-import { getAllData, getTotalData } from './services/ApiData';
+import { getCountriesData, getTotalData } from './services/ApiData';
 import { Graph } from './components/Graph';
 import { Search } from './components/Search';
 import { Stats } from './components/Stats';
@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     const dataHandler = async () => {
-      const { result } = await getAllData();
+      const { result } = await getCountriesData();
       setDataState({res:result});
     }
     dataHandler();

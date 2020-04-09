@@ -16,7 +16,7 @@ export const getTotalData = async () => {
   }
 }
 
-export const getAllData = async () => {
+export const getCountriesData = async () => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
